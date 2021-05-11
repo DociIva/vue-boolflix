@@ -1,22 +1,56 @@
 <template>
-  <div class="container">
+  <div class="container flex">
+      <div>
+          <!--Logo  <img src="../assets/logo.png" alt=""> -->
+          
+      </div>
       <!--SEARCH E BUTTON-->
-      <!--Logo-->
+     
        <!-- The form -->
-     <form class="example" action="action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit">CERCA</button>
+     <form class="ricerca">
+        <input type="text" placeholder="Cerca il tuo film" name="search" >
+         <!-- .prevent l'evento di invio non ricaricherà più la pagina -->
+        <button type="submit" placeholder="cerca il tuo film">CERCA</button>
      </form>
+  
+      
   </div>
 </template>
 
 <script>
+
+
 export default {
    name:'Header',
+   data() {
+      return { 
+         // dato di raccoglimento
+         searchText: '',
+      }
+   },
+   methods: {
+      
+   },
 }
 </script>
 
 <style scoped lang="scss">
-
+/*
+.flex {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}*/
+.ricerca {
+   margin-top: 20px;
+   padding-right: 40px;
+   padding-left: 40px;
+}
+input {
+   padding: 10px;
+}
+button {
+   padding: 10px;
+}
 
 </style>
