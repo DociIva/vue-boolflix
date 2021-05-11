@@ -3,20 +3,17 @@
     <!--header-->
     <header> 
       <!--da mettere classe da portare nel header-->
-      <Header />
-    </header>
-    
+      <Header  @searchEvent="aggSearchText" />
+    </header >
+      <main>
+        <Products :movies="moviesList"/>
+      </main>
+        
 
     <!--content-->
-    <main>
+    
      
-        <div class="movies" v-for="film in moviesList" :key="film.id">
-           <Products :movies="film" />
-        </div>
-        
-       
       
-    </main>
     
   </div>
 </template>
@@ -35,23 +32,28 @@ export default {
   },
    data(){
      return {
-       apiURL:'https://api.themoviedb.org/3/search/movie?api_key=8b24efa1369bc43a281706238658d0d1&query=fantozzi',
        moviesList: [],
-      }
-   },
-  created() {
-    this.getFilm();
-  },
-  methods: { 
-    getFilm() {
-      axios.get(this.apiURL)
-      .then(res=> {
-        this.moviesList =res.data.results;
-        console.log(res.data.results);
-      })
-    }
+       apiURL:'https://api.themoviedb.org/3/search/movie?api_key=8b24efa1369bc43a281706238658d0d1&query=fantozzi',
 
+      }
+    },
+  
+  methods: { 
+    //aggionamento del searchText
+    aggSearchText(text) {
+        axios.get(this.apiURL, {
+          params: {
+            api_key: '8b24efa1369bc43a281706238658d0d1',
+            query: text,
+          }
+        })
+        .then(res => {
+          this.moviesList = res.data.results;
+          console.log(this.moviesList);
+        })  
+    }
   }
+   
 }
 </script>
 

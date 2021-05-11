@@ -8,9 +8,9 @@
      
        <!-- The form -->
      <form class="ricerca">
-        <input type="text" placeholder="Cerca il tuo film" name="search" >
+        <input type="text" placeholder="Cerca il tuo film" name="search" v-model.trim="searchText" >
          <!-- .prevent l'evento di invio non ricaricherà più la pagina -->
-        <button type="submit" placeholder="cerca il tuo film">CERCA</button>
+        <button type="button" placeholder="cerca il tuo film" @click="$emit('aggSearchText', searchText)">CERCA </button>
      </form>
   
       
