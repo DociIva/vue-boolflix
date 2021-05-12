@@ -12,7 +12,7 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 // IMPORTAZIONE DEI COMPONENTI
 import Header from '@/components/Header.vue';
 import Products from '@/components/Products.vue';
@@ -23,11 +23,39 @@ export default {
     Header,
     Products,
   },
+  data() {
+    return {
+       //chiamata unica di per la parte iniziale messa in una raccolta
+       apiURL: 'https://api.themoviedb.org/3/search/' ,
+       // Key api
+       apiKey: '8b24efa1369bc43a281706238658d0d1',
+       //raccolta
+       filmList: [],
+       serieList: [],
+    }
+  },
   methods: {
     // è un dato passato dal dal search su / 
     //con le connes hai preso il dato che viene registrato e l'evento al click
     getRaccoltaDati(searchText) {
       console.log(searchText);
+
+      // controllo della chiamata| searchText non è vuoto
+      if(searchText !== '') {
+        // chiamata API qua | concatenmento della scelta movie o serie tv | più dinamico
+        axios.get(this.apiURL + 'movie', {
+          params: {
+            api_key: this.apiKey,
+            // paramentro 
+            query: searchText,
+            language:'it-IT',
+          }
+        }). then(res => {
+          this.filmList = res.data.results;
+        })
+
+
+      }
     }
   }
 }
