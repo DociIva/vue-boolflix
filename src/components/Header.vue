@@ -1,20 +1,17 @@
 <template>
-  <div class="container flex">
-      <div>
-          <!--Logo  <img src="../assets/logo.png" alt=""> -->
-          
+   <header class="flex">
+      <!--per il logo-->
+      <a href="#">Logo</a>
+
+      <!--ricerca-->
+      <div class="search">                                                <!--funzione fatta sotto-->
+        <input type="text" placeholder="Cerca il tuo film / serie" v-model.trim="searchText">
+        <!--EVENTO tuo PER TRASMETTERE I DATI DAL FIGLIO AL PAPA ('nome', funzione che ottiene i dati da mettere ora nell'APP)-->
+        <button @click="$emit('search',searchText)"
+               class="ricerca">Ricerca</button>
       </div>
-      <!--SEARCH E BUTTON-->
-     
-       <!-- The form -->
-     <form class="ricerca">
-        <input type="text" placeholder="Cerca il tuo film" name="search" v-model.trim="searchText" >
-         <!-- .prevent l'evento di invio non ricaricherà più la pagina -->
-        <button type="button" placeholder="cerca il tuo film" @click="$emit('aggSearchText', searchText)">CERCA </button>
-     </form>
-  
-      
-  </div>
+   </header>
+   
 </template>
 
 <script>
@@ -35,12 +32,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/*
+
 .flex {
    display: flex;
    justify-content: space-between;
    align-items: center;
-}*/
+}
 .ricerca {
    margin-top: 20px;
    padding-right: 40px;

@@ -1,25 +1,18 @@
 <template>
   <div id="app">
-    <!--header-->
-    <header> 
+      <!--header-->
       <!--da mettere classe da portare nel header-->
-      <Header  @searchEvent="aggSearchText" />
-    </header >
-      <main>
-        <Products :movies="moviesList"/>
-      </main>
-        
-
-    <!--content-->
+      <Header @search="getRaccoltaDati"/>
     
-     
       
+     <!--content-->
+      <Products/>  
     
   </div>
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 // IMPORTAZIONE DEI COMPONENTI
 import Header from '@/components/Header.vue';
 import Products from '@/components/Products.vue';
@@ -30,30 +23,13 @@ export default {
     Header,
     Products,
   },
-   data(){
-     return {
-       moviesList: [],
-       apiURL:'https://api.themoviedb.org/3/search/movie?api_key=8b24efa1369bc43a281706238658d0d1&query=fantozzi',
-
-      }
-    },
-  
-  methods: { 
-    //aggionamento del searchText
-    aggSearchText(text) {
-        axios.get(this.apiURL, {
-          params: {
-            api_key: '8b24efa1369bc43a281706238658d0d1',
-            query: text,
-          }
-        })
-        .then(res => {
-          this.moviesList = res.data.results;
-          console.log(this.moviesList);
-        })  
+  methods: {
+    // è un dato passato dal dal search su / 
+    //con le connes hai preso il dato che viene registrato e l'evento al click
+    getRaccoltaDati(searchText) {
+      console.log(searchText);
     }
   }
-   
 }
 </script>
 
