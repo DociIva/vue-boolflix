@@ -1,7 +1,9 @@
 <template>
-   <header class="flex">
+   <header class="top-bar">
       <!--per il logo-->
-      <a href="#">Logo</a>
+      <a href="#">
+         <img src="@/assets/img/Logo.png" alt="BoolFlix Logo">
+      </a>
 
       <!--ricerca-->
       <div class="search">                                                <!--funzione fatta sotto-->
@@ -33,16 +35,16 @@ export default {
 
 <style scoped lang="scss">
 
-.flex {
+.top-bar{
+   height: 120px;
+   background-color: #000;
+   padding: 0 60px;
    display: flex;
    justify-content: space-between;
    align-items: center;
+
 }
-.ricerca {
-   margin-top: 20px;
-   padding-right: 40px;
-   padding-left: 40px;
-}
+
 input {
    padding: 10px;
 }

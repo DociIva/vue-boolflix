@@ -5,8 +5,8 @@
       <Header @search="getRaccoltaDati"/>
     
       
-     <!--content-->
-      <Products/>  
+     <!--content    per portare da qua al componente-->
+      <Products :filmList="filmList" :series="serieList"/>  
     
   </div>
 </template>
@@ -41,21 +41,40 @@ export default {
       console.log(searchText);
 
       // controllo della chiamata| searchText non è vuoto
+
       if(searchText !== '') {
-        // chiamata API qua | concatenmento della scelta movie o serie tv | più dinamico
+          //punto centralizzato
+        const apiParametri = {
+               api_key: this.apiKey,
+                // paramentro 
+                query: searchText,
+                language:'it-IT',
+        };
+        /**
+         *  X I FILM
+         * chiamata API qua | concatenmento della scelta movie o serie tv | più dinamico
+         */
+        
         axios.get(this.apiURL + 'movie', {
-          params: {
-            api_key: this.apiKey,
-            // paramentro 
-            query: searchText,
-            language:'it-IT',
-          }
-        }). then(res => {
+
+              params: apiParametri,
+    
+         }). then(res => {
           this.filmList = res.data.results;
-        })
-
-
-      }
+         });
+        
+         /**
+         * X LE SEARIES 
+         */
+        axios.get(this.apiURL + 'tv', {
+               // avr data
+               params: apiParametri,
+            
+         }). then(res => {
+          this.serieList = res.data.results;
+         });
+    
+        }
     }
   }
 }

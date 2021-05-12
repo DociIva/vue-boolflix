@@ -1,29 +1,51 @@
 <template>
   <main>
-    
-    
+     <section  v-show="filmList.length > 0" class="film">
+        <h2>MOVIES</h2>
+        <div>
+            <!--loop qua nella :key="a + 1 se hai lo stetta key"--->
+           <Film v-for="film in filmList" 
+                 :key="film.id" 
+                 :info="film"
+            />
+
+        </div>
+     </section>
+
+     <section v-show="series.length" class="serie-tv">
+        <h2>SERIE TV</h2>
+         
+          <div>
+            <!--loop qua nella :key="a + 1 se hai lo stetta key"--->
+           <Film v-for="serie in series" 
+                 :key="serie.id" 
+                 :info="serie"
+            />
+
+        </div>
+     </section>
   </main>
 </template>
 
 <script>
 
-//import Film from '@/components/Film.vue';
+import Film from '@/components/Film.vue';
 export default {
   name: 'Products',
   components: {
-    //Film,
+    Film,
   },
+  // per portare i dati dal padre al figlio
+  props: {    // per dire di che genere è
+      filmList: Array,
+      series: Array,
+  }
+  
 
     
 } 
 </script>
 
 <style scoped lang="scss">
-main {
-  height: 500px;
-}
-.movie {
-  width: 200px;
-  height: 300px;
-}
+
 </style>
