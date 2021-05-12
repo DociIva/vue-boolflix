@@ -21,7 +21,6 @@
                  :key="serie.id" 
                  :info="serie"
             />
-
         </div>
      </section>
   </main>
@@ -41,8 +40,6 @@ export default {
       series: Array,
   }
   
-
-    
 } 
 </script>
 

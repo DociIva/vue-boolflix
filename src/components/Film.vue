@@ -1,21 +1,16 @@
 <template>
-   <div class="film">
-       <ul>
-   
-          <li><img :src="`https://image.tmdb.org/t/p/w154/${info.poster_path}`" alt="copertina"> </li>
-          <li>{{info.title ? info.title : info.name }}</li>
-          <li>{{info.original_title  ? info.original_title : info.original_name }}</li>
-
-          <li>  <!--da mettere require() meglio cosi perchè cosi agg solo la lingua giu |perchè è una stringa dinamica fatta da noi | gli fa lavorare come se fosse normale, e la fà ritornare un modulo bildato-->
-             <img v-if="flag(info.original_language)"
-                  :src="require(`@/assets/img/${info.original_language}.png`)" 
-                  :alt="info.title">
-               
-          </li>
-           <span>{{info.original_language}}</span>
-
-          <li>{{info.vote_average}}</li>
-       </ul>
+   <div class="card">
+      <div class="poster">
+         <div v-if="info.backdrop_path == null"></div>
+         <div v-else>
+              <img :src="`https://image.tmdb.org/t/p/w342/${info.poster_path}`" alt="copertina">
+         </div>
+      </div>
+       <div class="details-film">
+            <h2>{{info.title ? info.title : info.name }}</h2>
+            <h3>{{info.original_title  ? info.original_title : info.original_name }}</h3>
+            <span>{{info.overview}}</span>
+       </div>
    </div>
 </template>
 
@@ -42,6 +37,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.card {
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
 img {
    width: 50px;
 }
