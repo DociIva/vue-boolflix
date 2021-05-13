@@ -45,11 +45,21 @@ export default {
 
 <style scoped lang="scss">
 
-  .cards {
-   display: flex;
-   flex-wrap: wrap;
-   align-items: stretch;
- }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+h2 {
+  color: rgba(194, 17, 17, 0.8);
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 
 
 

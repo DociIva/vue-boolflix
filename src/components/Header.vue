@@ -43,9 +43,15 @@ export default {
    justify-content: space-between;
    align-items: center;
 }
-
+.search {
+   box-shadow: 5px 5px 20px hsl(218, 81%, 70%);
+}
+img {
+   box-shadow: 5px 5px 20px hsl(218, 81%, 70%);
+}
 input {
    padding: 10px;
+   border: 1px solid hsl(218, 81%, 70%);;
 }
 button {
    padding: 10px;

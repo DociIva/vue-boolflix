@@ -10,7 +10,7 @@
                         </div>
                         <div class="card-content">
                            <h2>{{info.title ? info.title : info.name }}</h2>
-                           <h3>{{info.original_title  ? info.original_title : info.original_name }}</h3>
+                           <h2>{{info.original_title  ? info.original_title : info.original_name }}</h2>
                            <span>{{info.overview}}</span>
 
                            <div class="star">
@@ -61,10 +61,11 @@ export default {
 
 .cards-container {
 	flex: 1 1 300px;
-   height: calc(100vh -57px);
 	margin-top: 10px;
 	padding: 10px;
-   align-items: stretch;
+   max-height: 600px;
+   max-width: 100%;
+   
 }
 .cards {
    display: flex;
@@ -73,12 +74,41 @@ export default {
 .card {
 	flex: 0 1 20%;
    position: relative;
+   box-shadow: 5px 5px 15px #dedede;
 }
 
 .card-content {
-   background-color: lightcoral;
+   opacity: 0;
+   position: absolute;
+   top: 0;
+   left: 0;
+   right:0;
+   bottom: 0;
+   color: #fff;
+   font-size: 14px;
+   background-color: rgb(2, 7, 21);
+   box-shadow: 0 0 12px hsl(203, 48%, 68%);
    width: 100%;
+   height: 100%;
+   padding: 60px;
+   text-align: center;
+   transition: 0.5s;
+   &:hover {
+      opacity: 1;
+      cursor: pointer;
+   }
+}
+.star {
+   color:rgb(250, 250, 112);
 }
 
+h2,
+span {
+   margin: 5px;
+}
 
+.image {
+   max-width: 100%;
+   max-height: 600px;
+}
 </style>
