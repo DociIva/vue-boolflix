@@ -2,7 +2,7 @@
   <main>
      <section  v-show="filmList.length > 0" class="film">
         <h2>MOVIES</h2>
-        <div>
+        <div class="cards">
             <!--loop qua nella :key="a + 1 se hai lo stetta key"--->
            <Film v-for="film in filmList" 
                  :key="film.id" 
@@ -15,7 +15,7 @@
      <section v-show="series.length" class="serie-tv">
         <h2>SERIE TV</h2>
          
-          <div>
+          <div class="cards">
             <!--loop qua nella :key="a + 1 se hai lo stetta key"--->
            <Film v-for="serie in series" 
                  :key="serie.id" 
@@ -44,5 +44,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  .cards {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: stretch;
+ }
+
+
+
+
 
 </style>
