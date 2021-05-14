@@ -1,5 +1,5 @@
 <template>
-     <div class="cards-container">
+     <div class="cards-container container">
             <section class="cards">
    
                 <article class="card">
@@ -58,7 +58,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import '@/styles/general';
 .cards-container {
 	flex: 1 1 300px;
 	margin-top: 10px;
@@ -90,7 +90,7 @@ export default {
    box-shadow: 0 0 12px hsl(203, 48%, 68%);
    width: 100%;
    height: 100%;
-   padding: 60px;
+   padding: 40px;
    text-align: center;
    transition: 0.5s;
    &:hover {
@@ -100,6 +100,7 @@ export default {
 }
 .star {
    color:rgb(250, 250, 112);
+   margin-top: 10px;
 }
 
 h2,

@@ -1,6 +1,6 @@
 <template>
   <main>
-     <section  v-show="filmList.length > 0" class="film">
+     <section  v-show="filmList.length > 0" class="film container">
         <h2>MOVIES</h2>
         <div class="cards">
             <!--loop qua nella :key="a + 1 se hai lo stetta key"--->
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import '@/styles/general';
 .cards {
   display: flex;
   flex-wrap: wrap;

@@ -54,7 +54,14 @@ input {
    border: 1px solid hsl(218, 81%, 70%);;
 }
 button {
+   cursor: pointer;
    padding: 10px;
+   color: #fff;
+   background-color: rgb(230, 23, 23);
+   transition: background 0.4s;
+   &:hover {
+      background-color: rgb(17, 40, 157);
+   }
 }
 
 </style>
